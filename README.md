@@ -1,6 +1,6 @@
 Este é um projeto [Next.js](https://nextjs.org) e [TaiwindCSS](https://tailwindcss.com/docs/installation/framework-guides) inicializado com [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## CComeçando
+## Começando
 
 Primeiro, execute o servidor de desenvolvimento:
 

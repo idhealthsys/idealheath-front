@@ -1,11 +1,15 @@
-import Header from "@/components/Shared/header";
+import Head from "@/components/Shared/Head";
 
-export default function Login(){
+export default function Login() {
   return (
     <>
-     
-
-      <h1>Login</h1>
+      <Head
+        title="Ideal Health - Login"
+        description="Segurança e agilidade em um só lugar. Entre com sua conta Google e comece agora mesmo!"
+      />
+      <main className="container">
+        <h1 className="text-4xl">Login</h1>
+      </main>
     </>
   );
 }

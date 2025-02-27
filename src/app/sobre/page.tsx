@@ -1,9 +1,12 @@
-import Footer from "@/components/Shared/footer";
-import Header from "@/components/Shared/header";
+import Head from "@/components/Shared/Head";
 
 export default function Sobre() {
   return (
     <>
+      <Head
+        title="Ideal Health - Sobre"
+        description="Conheça mais sobre a Ideal Health"
+      />
       <main className="animate-slideIn">
         <section className="container">
           <div className="mb-20">
@@ -22,7 +25,7 @@ export default function Sobre() {
             </p>
             <ul className="pl-5 mb-8 *:mb-4 *:leading-[1.6]  relative *:before:size-2 *:before:bg-green-300 *:before:absolute *:before:ml-[-1rem] *:before:mt-[10px] *:before:rounded-full">
               <li className="">
-                Integrar leads de diversas fontes e centralizar todas as 
+                Integrar leads de diversas fontes e centralizar todas as
                 informações em um só lugar.
               </li>
               <li className="">

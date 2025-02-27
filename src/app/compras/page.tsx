@@ -1,11 +1,16 @@
-import Header from "@/components/Shared/header";
+import Head from "@/components/Shared/Head";
+import Header from "@/components/Shared/Header";
 
-export default function Planos(){
+export default function Planos() {
   return (
     <>
-   
-
-      <h1>Compras</h1>
+      <Head
+        title="Ideal Health - Compras"
+        description="Aproveite nossos serviços e produtos que irão acelerar o seu negócio."
+      />
+      <main className="container">
+        <h1 className="text-4xl">Compras</h1>
+      </main>
     </>
   );
 }
