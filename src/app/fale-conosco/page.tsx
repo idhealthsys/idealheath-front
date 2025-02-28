@@ -90,8 +90,8 @@ export default function Contato() {
                 Mensagem
                 <textarea
                   className="p-4 mb-4 mt-2 border-2 border-gray-300 rounded-md transition-all
-              ease-in-out focus:border-roxo-400 focus:ring-0 focus:ring-roxo-100
-              focus:shadow-[0_0_0_4px_#8F97CE]"
+                  ease-in-out focus:border-roxo-400 focus:ring-0 focus:ring-roxo-100
+                  focus:outline-none focus:shadow-[0_0_0_4px_#8F97CE]"
                   name="mensagem"
                   id="mensagem"
                   cols={30}

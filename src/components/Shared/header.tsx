@@ -5,8 +5,6 @@ import Image from "next/image";
 import Logo from "../../../public/logo.svg";
 import { usePathname } from "next/navigation";
 
-
-
 const Header = () => {
   const pathname = usePathname();
   const [menuMobile, setMenuMobile] = useState(false);
@@ -19,7 +17,7 @@ const Header = () => {
   }
   return (
     <>
-      <header>
+      <header className="sticky top-0 z-50">
         <div className={`bg-zinc-800 py-5 `}>
           <div className=" container flex justify-between items-center">
             <Link href="/">
@@ -44,7 +42,11 @@ const Header = () => {
               <ul className="lg:flex lg:flex-wrap items-center lg:gap-4 max-lg:z-60 max-lg:absolute max-lg:divide-y-2 max-lg:divide-white/10 max-lg:p-8 max-lg:w-full max-lg:text-2xl ">
                 <li className="max-lg:animate-slideIn max-lg:opacity-0 max-lg:animate-1">
                   <Link
-                    className={`text-gray-200 lg:hover:bg-white lg:hover:text-black p-4 lg:rounded-md block transition max-lg:hover:bg-white/10`}
+                    className={`${
+                      pathname === "/sobre"
+                        ? "bg-white text-stone-800"
+                        : "text-gray-200"
+                    } text-gray-200 lg:hover:bg-white lg:hover:text-black p-4 lg:rounded-md block transition duration-300 max-lg:hover:bg-white/10`}
                     href={"/sobre"}
                   >
                     Sobre
@@ -52,7 +54,11 @@ const Header = () => {
                 </li>
                 <li className="max-lg:animate-slideIn max-lg:opacity-0 max-lg:animate-2">
                   <Link
-                    className={`text-gray-200 lg:hover:bg-white lg:hover:text-black p-4 rounded-md max-lg:rounded-none block transitio n max-lg:hover:bg-white/10`}
+                    className={`${
+                      pathname === "/fale-conosco"
+                        ? "bg-white text-stone-800"
+                        : "text-gray-200"
+                    } text-gray-200 lg:hover:bg-white lg:hover:text-black p-4 rounded-md max-lg:rounded-none block transition duration-300 max-lg:hover:bg-white/10`}
                     href={"/fale-conosco"}
                   >
                     Contato
@@ -60,7 +66,11 @@ const Header = () => {
                 </li>
                 <li className="max-lg:animate-slideIn max-lg:opacity-0 max-lg:animate-3">
                   <Link
-                    className={`text-gray-200 lg:hover:bg-white lg:hover:text-black p-4 rounded-md max-lg:rounded-none block transition max-lg:hover:bg-white/10`}
+                    className={`${
+                      pathname === "/compras"
+                        ? "bg-white text-stone-800"
+                        : "text-gray-200"
+                    } text-gray-200 lg:hover:bg-white lg:hover:text-black p-4 rounded-md max-lg:rounded-none block transition duration-300 max-lg:hover:bg-white/10`}
                     href={"/compras"}
                   >
                     Compras

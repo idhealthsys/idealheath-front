@@ -15,7 +15,7 @@ import React from "react";
 export default function Solucoes() {
   const [solucao, setSolucao] = React.useState(1);
 
-  const exibirSolucao = (index: any) => {
+  const exibirSolucao = (index: number) => {
     setSolucao(index);
   };
 
@@ -159,7 +159,7 @@ export default function Solucoes() {
             solucao === 4 ? "shadow-[0_0_0_4px_#2D3674]" : ""
           } border flex items-center justify-center rounded-md transition bg-[#ffc8ec]`}
         >
-          ⠀<IconUserEdit size={32} color="#4E0C37" />⠀
+          ⠀<IconUserEdit size={32} color="#4E0C37"/>⠀
         </button>
         <button
           onClick={() => exibirSolucao(5)}
