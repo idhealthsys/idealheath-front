@@ -44,9 +44,9 @@ const Header = () => {
                   <Link
                     className={`${
                       pathname === "/sobre"
-                        ? "bg-white text-stone-800"
+                        ? "bg-gray-200 text-stone-800"
                         : "text-gray-200"
-                    } text-gray-200 lg:hover:bg-white lg:hover:text-black p-4 lg:rounded-md block transition duration-300 max-lg:hover:bg-white/10`}
+                    } text-gray-200 lg:hover:bg-gray-200 lg:hover:text-black py-2 px-4 lg:rounded-md block transition duration-300 max-lg:hover:bg-white/10`}
                     href={"/sobre"}
                   >
                     Sobre
@@ -56,9 +56,9 @@ const Header = () => {
                   <Link
                     className={`${
                       pathname === "/fale-conosco"
-                        ? "bg-white text-stone-800"
+                        ? "bg-gray-200 text-stone-800"
                         : "text-gray-200"
-                    } text-gray-200 lg:hover:bg-white lg:hover:text-black p-4 rounded-md max-lg:rounded-none block transition duration-300 max-lg:hover:bg-white/10`}
+                    } text-gray-200 lg:hover:bg-gray-200 lg:hover:text-black py-2 px-4 rounded-md max-lg:rounded-none block transition duration-300 max-lg:hover:bg-white/10`}
                     href={"/fale-conosco"}
                   >
                     Contato
@@ -68,9 +68,9 @@ const Header = () => {
                   <Link
                     className={`${
                       pathname === "/compras"
-                        ? "bg-white text-stone-800"
+                        ? "bg-gray-200 text-stone-800"
                         : "text-gray-200"
-                    } text-gray-200 lg:hover:bg-white lg:hover:text-black p-4 rounded-md max-lg:rounded-none block transition duration-300 max-lg:hover:bg-white/10`}
+                    } text-gray-200 lg:hover:bg-gray-200 lg:hover:text-black py-2 px-4 rounded-md max-lg:rounded-none block transition duration-300 max-lg:hover:bg-white/10`}
                     href={"/compras"}
                   >
                     Compras
@@ -78,7 +78,7 @@ const Header = () => {
                 </li>
                 <li className="max-lg:animate-slideIn max-lg:opacity-0 max-lg:animate-4">
                   <Link
-                    className={`text-gray-200 lg:hover:shadow-[0_0_0_4px_#fff] p-4 lg:rounded-md block transition lg:border max-lg:hover:bg-white/10`}
+                    className={`text-gray-200 lg:hover:shadow-[0_0_0_4px_#fff] py-2 px-4 lg:rounded-md block transition lg:border max-lg:hover:bg-white/10`}
                     href={"/login"}
                   >
                     Entrar
