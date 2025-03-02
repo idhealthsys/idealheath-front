@@ -5,6 +5,7 @@ import CustomInput from "@/components/Shared/FormsComponets/customInput";
 import CustomButton from "@/components/Shared/FormsComponets/customButton";
 import useForm from "@/Hooks/useForm";
 import Head from "@/components/Shared/Head";
+import { motion } from "framer-motion";
 
 export default function Contato() {
   const nome = useForm();
@@ -18,7 +19,11 @@ export default function Contato() {
         title="Ideal Health - Contato"
         description="Tire suas dúvidas ou entre em contato conosco."
       />
-      <main className="animate-slideIn">
+      <motion.main
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.3 }}
+      >
         <section className="container mb-28">
           <div>
             <span className="block mt-16 text-gray-500">
@@ -91,7 +96,7 @@ export default function Contato() {
                 <textarea
                   className="p-4 mb-4 mt-2 border-2 border-gray-300 rounded-md transition-all
                   ease-in-out focus:border-roxo-400 focus:ring-0 focus:ring-roxo-100
-                  focus:outline-none focus:shadow-[0_0_0_4px_#8F97CE]"
+                  focus:outline-hidden focus:shadow-[0_0_0_4px_#8F97CE]"
                   name="mensagem"
                   id="mensagem"
                   cols={30}
@@ -122,7 +127,7 @@ export default function Contato() {
             <FAQ />
           </div>
         </article>
-      </main>
+      </motion.main>
     </>
   );
 }

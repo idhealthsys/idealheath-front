@@ -10,7 +10,7 @@ export default function Accordion({ pergunta, resposta } : AccordionProps){
   const [accordionOpen, setAccordionOpen] = useState(false)
 
   return (
-    <div className="p-5 rounded mb-5 border odd:bg-violet-100 border-violet-300">
+    <div className="p-5 rounded-sm mb-5 border odd:bg-violet-100 border-violet-300">
       <button
         onClick={() => setAccordionOpen(!accordionOpen)}
         className=" flex justify-between w-full"
@@ -30,7 +30,7 @@ export default function Accordion({ pergunta, resposta } : AccordionProps){
             height="2"
             rx="1"
             className={`transform origin-center transition duration-200 ease-out ${
-              accordionOpen && "!rotate-180"
+              accordionOpen && "rotate-180!"
             }`}
           />
           <rect
@@ -39,7 +39,7 @@ export default function Accordion({ pergunta, resposta } : AccordionProps){
             height="2"
             rx="1"
             className={`transform origin-center rotate-90 transition duration-200 ease-out ${
-              accordionOpen && "!rotate-180"
+              accordionOpen && "rotate-180!"
             }`}
           />
         </svg>

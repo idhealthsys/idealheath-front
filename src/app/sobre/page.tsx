@@ -1,4 +1,6 @@
+'use client'
 import Head from "@/components/Shared/Head";
+import { motion } from "framer-motion";
 
 export default function Sobre() {
   return (
@@ -7,7 +9,11 @@ export default function Sobre() {
         title="Ideal Health - Sobre"
         description="Conheça mais sobre a Ideal Health"
       />
-      <main className="animate-slideIn">
+      <motion.main
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.3 }}
+      >
         <section className="container">
           <div className="mb-20">
             <div>
@@ -79,7 +85,7 @@ export default function Sobre() {
             </p>
           </div>
         </section>
-      </main>
+      </motion.main>
     </>
   );
 }

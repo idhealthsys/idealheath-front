@@ -30,7 +30,7 @@ export default function CustomInput({
         placeholder={placeholder}
         onChange={onChange}
         className="p-3 mb-4 border-2 focus-outline-none border-gray-300 rounded-md 
-        w-full transition-all ease-in-out focus:border-roxo-400 focus:ring-0 focus:ring-roxo-100 focus:outline-none
+        w-full transition-all ease-in-out focus:border-roxo-400 focus:ring-0 focus:ring-roxo-100 focus:outline-hidden
         focus:shadow-[0_0_0_4px_#8F97CE]"
       />
       <p></p>

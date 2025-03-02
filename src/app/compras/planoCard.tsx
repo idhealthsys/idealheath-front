@@ -15,7 +15,7 @@ export default function PlanoCard({
   return (
     <button
       onClick={onClick}
-      className={`${className} py-4 px-5 w-full border rounded-md mb-5`}
+      className={`${className} cursor-pointer py-4 px-5 w-full border rounded-md mb-5`}
     >
       <h2 className="font-bold lg:text-start text-center text-2xl lg:text-xl">
         {name}

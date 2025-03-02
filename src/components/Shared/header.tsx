@@ -179,10 +179,10 @@ export default Header;
         </nav>
         <button
           onClick={handleMenuMobile}
-          className=" text-jazzberry_jam-950 py-1 px-3 text-lg rounded-sm flex items-center gap-3 lg:hidden"
+          className=" text-jazzberry_jam-950 py-1 px-3 text-lg rounded-xs flex items-center gap-3 lg:hidden"
         >
           Menu
-          <span className="h-4 w-5 flex flex-col justify-between *:h-0.5 *:bg-jazzberry_jam-950 *:rounded">
+          <span className="h-4 w-5 flex flex-col justify-between *:h-0.5 *:bg-jazzberry_jam-950 *:rounded-sm">
             <span></span>
             <span></span>
             <span></span>

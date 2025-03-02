@@ -4,7 +4,7 @@ type CustomButtonProps = {
 
 export default function CustomButton({ children }: CustomButtonProps) {
   return (
-    <button className="py-4 px-8 bg-roxo-400 text-white rounded">
+    <button className="py-4 px-8 bg-roxo-400 text-white rounded-sm">
       {children}
     </button>
   );
