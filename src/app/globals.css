@@ -19,5 +19,7 @@
     border-color: var(--color-gray-200, currentColor);
   }
 }
-
-
+.no-scroll {
+  overflow: hidden;
+  height: 100vh; /* Ajusta a altura do body para evitar espaços em branco */
+}

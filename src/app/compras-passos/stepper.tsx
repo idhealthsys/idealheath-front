@@ -10,6 +10,8 @@ import React, {
 } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 
 // Definindo a interface para as props do StepIndicator
 interface StepIndicatorProps {
@@ -106,18 +108,21 @@ export default function Stepper({
       updateStep(currentStep - 1);
     }
   };
-
+  
   const handleNext = () => {
     if (!isLastStep) {
       setDirection(1);
       updateStep(currentStep + 1);
     }
   };
-
+  
+  const router = useRouter()
   const handleComplete = () => {
     setDirection(1);
     updateStep(totalSteps + 1);
+    router.push("/"); // ---------- Redireciona o usuario para o Home ou outra rota ----------
   };
+
 
   return (
     <div
@@ -202,6 +207,7 @@ export default function Stepper({
                 {...nextButtonProps}
               >
                 {isLastStep ? "Finalizar" : "Avançar"}
+                
               </button>
             </div>
           </div>

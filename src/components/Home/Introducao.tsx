@@ -5,10 +5,7 @@ import Threads from "@/ui/blocks/Backgrounds/Threads/Threads";
 
 export default function Introducao() {
   return (
-    <motion.section
-   
-      className="bg-zinc-800"
-    >
+    <motion.section className="bg-zinc-800">
       <div className="container text-center">
         <LayoutGroup>
           <motion.div className="pt-10 pb-24 ">
@@ -17,7 +14,7 @@ export default function Introducao() {
               <motion.span className="flex items-center justify-center">
                 <RotatingText
                   texts={[
-                    "resultados surpreendentes",
+                    "Resultados notáveis",
                     "crescimento acelerado",
                     "clientes fidelizados",
                   ]}
