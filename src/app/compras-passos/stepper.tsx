@@ -1,39 +1,74 @@
-/*
-	jsrepo 1.41.2
-	Installed from https://reactbits.dev/ts/tailwind/
-	02-03-2025
-*/
-
 import React, {
   useState,
   Children,
+  ReactNode,
   useRef,
   useLayoutEffect,
   HTMLAttributes,
-  ReactNode,
+  ButtonHTMLAttributes,
+  MouseEvent,
 } from "react";
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
+// Definindo a interface para as props do StepIndicator
+interface StepIndicatorProps {
+  step: number;
+  currentStep: number;
+  onClickStep: (clicked: number) => void;
+  disableStepIndicators: boolean;
+}
+
+// Definindo a interface para as props do StepConnector
+interface StepConnectorProps {
+  isComplete: boolean;
+}
+
+// Definindo a interface para as props do Step
+interface StepProps {
+  children: ReactNode;
+}
+
+// Definindo a interface para as props do SlideTransition
+interface SlideTransitionProps {
+  children: ReactNode;
+  direction: number;
+  onHeightReady: (height: number) => void;
+}
+
+// Definindo a interface para as props do StepContentWrapper
+interface StepContentWrapperProps {
+  isCompleted: boolean;
+  currentStep: number;
+  direction: number;
+  children: ReactNode;
+  className?: string;
+}
+
+// Definindo a interface para as props do Stepper
 interface StepperProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   initialStep?: number;
-  onStepChange?: (step: number) => void;
+  onStepChange?: (newStep: number) => void;
   onFinalStepCompleted?: () => void;
   stepCircleContainerClassName?: string;
   stepContainerClassName?: string;
   contentClassName?: string;
   footerClassName?: string;
-  backButtonProps?: React.ButtonHTMLAttributes<HTMLButtonElement>;
-  nextButtonProps?: React.ButtonHTMLAttributes<HTMLButtonElement>;
+  backButtonProps?: ButtonHTMLAttributes<HTMLButtonElement>;
+  nextButtonProps?: ButtonHTMLAttributes<HTMLButtonElement>;
   backButtonText?: string;
   nextButtonText?: string;
   disableStepIndicators?: boolean;
-  renderStepIndicator?: (props: {
+  renderStepIndicator?: (args: {
     step: number;
     currentStep: number;
     onStepClick: (clicked: number) => void;
   }) => ReactNode;
 }
+
+// Definindo a interface para o CheckIcon
+interface CheckIconProps extends React.SVGProps<SVGSVGElement> {}
 
 export default function Stepper({
   children,
@@ -46,8 +81,8 @@ export default function Stepper({
   footerClassName = "",
   backButtonProps = {},
   nextButtonProps = {},
-  backButtonText = "Back",
-  nextButtonText = "Continue",
+  backButtonText = "",
+  nextButtonText = "",
   disableStepIndicators = false,
   renderStepIndicator,
   ...rest
@@ -61,11 +96,8 @@ export default function Stepper({
 
   const updateStep = (newStep: number) => {
     setCurrentStep(newStep);
-    if (newStep > totalSteps) {
-      onFinalStepCompleted();
-    } else {
-      onStepChange(newStep);
-    }
+    if (newStep > totalSteps) onFinalStepCompleted();
+    else onStepChange(newStep);
   };
 
   const handleBack = () => {
@@ -89,12 +121,11 @@ export default function Stepper({
 
   return (
     <div
-      className="flex min-h-full flex-1 flex-col items-center justify-center p-4 sm:aspect-[4/3] md:aspect-[2/1]"
+      className="flex min-h-full flex-1 flex-col items-center justify-center mx-2 mt-20 "
       {...rest}
     >
       <div
-        className={`mx-auto w-full max-w-md rounded-4xl shadow-xl ${stepCircleContainerClassName}`}
-        style={{ border: "1px solid #222" }}
+        className={`mx-auto w-full max-w-5xl rounded-md border border-roxo-300 ${stepCircleContainerClassName}`}
       >
         <div
           className={`${stepContainerClassName} flex w-full items-center p-8`}
@@ -131,7 +162,6 @@ export default function Stepper({
             );
           })}
         </div>
-
         <StepContentWrapper
           isCompleted={isCompleted}
           currentStep={currentStep}
@@ -140,7 +170,6 @@ export default function Stepper({
         >
           {stepsArray[currentStep - 1]}
         </StepContentWrapper>
-
         {!isCompleted && (
           <div className={`px-8 pb-8 ${footerClassName}`}>
             <div
@@ -158,15 +187,21 @@ export default function Stepper({
                   }`}
                   {...backButtonProps}
                 >
-                  {backButtonText}
+                  {"Voltar"}
                 </button>
               )}
+              <Link
+                className="duration-350 flex items-center justify-center rounded-full border border-roxo-300 text-roxo-300 py-1.5 px-3.5 font-medium tracking-tight hover:text-white transition hover:bg-roxo-400 active:bg-roxo-400 mr-8"
+                href="/"
+              >
+                Sair
+              </Link>
               <button
                 onClick={isLastStep ? handleComplete : handleNext}
-                className="duration-350 flex items-center justify-center rounded-full bg-green-500 py-1.5 px-3.5 font-medium tracking-tight text-white transition hover:bg-green-600 active:bg-green-700"
+                className="duration-350 flex items-center justify-center rounded-full bg-roxo-300 py-1.5 px-3.5 font-medium tracking-tight text-white transition hover:bg-roxo-400 active:bg-roxo-400"
                 {...nextButtonProps}
               >
-                {isLastStep ? "Complete" : nextButtonText}
+                {isLastStep ? "Finalizar" : "Avançar"}
               </button>
             </div>
           </div>
@@ -176,20 +211,12 @@ export default function Stepper({
   );
 }
 
-interface StepContentWrapperProps {
-  isCompleted: boolean;
-  currentStep: number;
-  direction: number;
-  children: ReactNode;
-  className?: string;
-}
-
 function StepContentWrapper({
   isCompleted,
   currentStep,
   direction,
   children,
-  className = "",
+  className,
 }: StepContentWrapperProps) {
   const [parentHeight, setParentHeight] = useState<number>(0);
 
@@ -215,23 +242,15 @@ function StepContentWrapper({
   );
 }
 
-interface SlideTransitionProps {
-  children: ReactNode;
-  direction: number;
-  onHeightReady: (height: number) => void;
-}
-
 function SlideTransition({
   children,
   direction,
   onHeightReady,
 }: SlideTransitionProps) {
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    if (containerRef.current) {
-      onHeightReady(containerRef.current.offsetHeight);
-    }
+    if (containerRef.current) onHeightReady(containerRef.current.offsetHeight);
   }, [children, onHeightReady]);
 
   return (
@@ -250,7 +269,7 @@ function SlideTransition({
   );
 }
 
-const stepVariants: Variants = {
+const stepVariants = {
   enter: (dir: number) => ({
     x: dir >= 0 ? "-100%" : "100%",
     opacity: 0,
@@ -265,38 +284,25 @@ const stepVariants: Variants = {
   }),
 };
 
-interface StepProps {
-  children: ReactNode;
-}
-
 export function Step({ children }: StepProps) {
   return <div className="px-8">{children}</div>;
-}
-
-interface StepIndicatorProps {
-  step: number;
-  currentStep: number;
-  onClickStep: (clicked: number) => void;
-  disableStepIndicators?: boolean;
 }
 
 function StepIndicator({
   step,
   currentStep,
   onClickStep,
-  disableStepIndicators = false,
+  disableStepIndicators,
 }: StepIndicatorProps) {
   const status =
     currentStep === step
       ? "active"
       : currentStep < step
-        ? "inactive"
-        : "complete";
+      ? "inactive"
+      : "complete";
 
   const handleClick = () => {
-    if (step !== currentStep && !disableStepIndicators) {
-      onClickStep(step);
-    }
+    if (step !== currentStep && !disableStepIndicators) onClickStep(step);
   };
 
   return (
@@ -309,8 +315,8 @@ function StepIndicator({
       <motion.div
         variants={{
           inactive: { scale: 1, backgroundColor: "#222", color: "#a3a3a3" },
-          active: { scale: 1, backgroundColor: "#00d8ff", color: "#00d8ff" },
-          complete: { scale: 1, backgroundColor: "#00d8ff", color: "#3b82f6" },
+          active: { scale: 1, backgroundColor: "#9295E1", color: "#9295E1" },
+          complete: { scale: 1, backgroundColor: "#9295E1", color: "#3b82f6" },
         }}
         transition={{ duration: 0.3 }}
         className="flex h-8 w-8 items-center justify-center rounded-full font-semibold"
@@ -327,14 +333,10 @@ function StepIndicator({
   );
 }
 
-interface StepConnectorProps {
-  isComplete: boolean;
-}
-
 function StepConnector({ isComplete }: StepConnectorProps) {
-  const lineVariants: Variants = {
+  const lineVariants = {
     incomplete: { width: 0, backgroundColor: "transparent" },
-    complete: { width: "100%", backgroundColor: "#00d8ff" },
+    complete: { width: "100%", backgroundColor: "#9295E1" },
   };
 
   return (
@@ -349,8 +351,6 @@ function StepConnector({ isComplete }: StepConnectorProps) {
     </div>
   );
 }
-
-interface CheckIconProps extends React.SVGProps<SVGSVGElement> {}
 
 function CheckIcon(props: CheckIconProps) {
   return (

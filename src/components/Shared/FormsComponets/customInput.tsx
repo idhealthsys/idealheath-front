@@ -6,6 +6,7 @@ type CustomInput = {
   type: string;
   name: string;
   value: string;
+  disabel?: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 export default function CustomInput({
@@ -15,6 +16,7 @@ export default function CustomInput({
   name,
   value,
   placeholder,
+  disabel,
   onChange,
 }: CustomInput) {
   return (
@@ -23,15 +25,16 @@ export default function CustomInput({
         {label}
       </label>
       <input
+        disabled={disabel}
         id={id}
         type={type}
         name={name}
         value={value}
         placeholder={placeholder}
         onChange={onChange}
-        className="p-3 mb-4 border-2 focus-outline-none border-gray-300 rounded-md 
+        className={`${disabel ? 'bg-gray-300' : ''} p-3 mb-4 border-2 focus-outline-none border-gray-300 rounded-md 
         w-full transition-all ease-in-out focus:border-roxo-400 focus:ring-0 focus:ring-roxo-100 focus:outline-hidden
-        focus:shadow-[0_0_0_4px_#8F97CE]"
+        focus:shadow-[0_0_0_4px_#8F97CE]`}
       />
       <p></p>
     </div>
