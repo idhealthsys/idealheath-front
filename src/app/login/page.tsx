@@ -31,7 +31,7 @@ export default function Login() {
         description="Segurança e agilidade em um só lugar. Entre com sua conta Google e comece agora mesmo!"
       />
       <main className="bg-roxo-100">
-        <div className="container flex items-center justify-center h-screen">
+        <div className="container flex items-center justify-center h-screen animate-slideIn">
           <div className="p-10 bg-white rounded-md">
             <h1 className="text-4xl font-bold mb-4 text-center">
               Bem-vindo de volta!

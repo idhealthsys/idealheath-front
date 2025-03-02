@@ -11,14 +11,14 @@ export default function Sobre() {
         <section className="container">
           <div className="mb-20">
             <div>
-              <span className="block mt-16 text-[#888]">
+              <span className="block mt-16 text-gray-500">
                 Conheça mais sobre nós!
               </span>
               <h1 className="text-4xl font-bold lg:text-5xl mb-16">
                 Sobre a Ideal Health
               </h1>
             </div>
-            <p className="mb-8 text-[#888]">
+            <p className="mb-8 text-gray-500 text-lg">
               A Ideal Health é uma empresa inovadora que se dedica a simplificar
               e otimizar a gestão de leads para corretores de planos de saúde.
               Através de nossa plataforma completa e intuitiva, você pode:

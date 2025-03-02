@@ -1,9 +1,9 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { poppins } from "../functions/fonts";
-import "./globals.css";
-import Footer from "@/components/Shared/Footer";
-import Header from "@/components/Shared/Header";
 import LayoutWrapper from "@/components/Shared/LayoutWrapper";
+import { generateFavicons } from "@/functions/generateFavicons";
+
 
 export const metadata: Metadata = {
   title:
@@ -28,6 +28,8 @@ export const metadata: Metadata = {
     "Clientes satisfeitos",
     "Fidelização",
   ],
+  icons: generateFavicons(),
+  
 };
 
 export default function RootLayout({

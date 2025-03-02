@@ -28,7 +28,7 @@ export default function Contato() {
               Entre em contato conosco!
             </h1>
           </div>
-          <p className="mb-12 text-gray-500">
+          <p className="mb-12 text-gray-500 text-lg">
             Se você tiver alguma dúvida sobre nossos produtos ou serviços,
             precisar de ajuda com sua conta ou simplesmente quiser nos dar
             feedback, entre em contato conosco. Nossa equipe de atendimento ao
