@@ -64,7 +64,9 @@ const Header = () => {
               >
                 <li className="max-lg:animate-slideIn max-lg:animate-1">
                   <Link
-                    className={` text-gray-200 lg:hover:bg-gray-200 lg:hover:text-black py-2 px-4 lg:rounded-md block transition duration-300 max-lg:hover:bg-white/10`}
+                    className={`${
+                      pathname === "/sobre" && "lg:bg-white lg:text-black"
+                    } text-gray-200 lg:hover:bg-gray-200 lg:hover:text-black py-2 px-4 lg:rounded-md block transition duration-300 max-lg:hover:bg-white/10`}
                     href={"/sobre"}
                   >
                     Sobre
@@ -72,7 +74,10 @@ const Header = () => {
                 </li>
                 <li className="max-lg:animate-slideIn max-lg:animate-2">
                   <Link
-                    className={` text-gray-200 lg:hover:bg-gray-200 lg:hover:text-black py-2 px-4 rounded-md max-lg:rounded-none block transition duration-300 max-lg:hover:bg-white/10`}
+                    className={`${
+                      pathname === "/fale-conosco" &&
+                      "lg:bg-white lg:text-black"
+                    } text-gray-200 lg:hover:bg-gray-200 lg:hover:text-black py-2 px-4 rounded-md max-lg:rounded-none block transition duration-300 max-lg:hover:bg-white/10`}
                     href={"/fale-conosco"}
                   >
                     Contato
@@ -80,7 +85,9 @@ const Header = () => {
                 </li>
                 <li className="max-lg:animate-slideIn max-lg:animate-3">
                   <Link
-                    className={` text-gray-200 lg:hover:bg-gray-200 lg:hover:text-black py-2 px-4 rounded-md max-lg:rounded-none block transition duration-300 max-lg:hover:bg-white/10`}
+                    className={`${
+                      pathname === "/compras" && "lg:bg-white lg:text-black"
+                    } text-gray-200 lg:hover:bg-gray-200 lg:hover:text-black py-2 px-4 rounded-md max-lg:rounded-none block transition duration-300 max-lg:hover:bg-white/10`}
                     href={"/compras"}
                   >
                     Compras
