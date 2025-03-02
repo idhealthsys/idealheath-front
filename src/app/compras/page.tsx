@@ -38,7 +38,7 @@ export default function Planos() {
       </main>
 
       <section className="container grid lg:grid-cols-2 gap-6 lg:gap-28 lg:items-start justify-center flex-wrap max-md:flex-col-reverse mb-28">
-        <div className="flex-col items-center md:items-start md:flex-row gap-5 lg:mb-10 lg:border-r lg:pr-28">
+        <div className="animate-slideIn flex-col items-center md:items-start md:flex-row gap-5 lg:mb-10 lg:border-r lg:pr-28">
           <PlanoCard
             className={`${
               plano === 0 ? "bg-roxo-400 *:text-white" : ""

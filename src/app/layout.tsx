@@ -41,7 +41,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={`animate-slideIn ${poppins.variable}`}>
         <LayoutWrapper>{children}</LayoutWrapper>{" "}
-        {/* O LayoutWrapper verifica se o pathname é igal a pagina de login ou dashboar para exibir ou nao os componentes header e footer. Ele é necessario ja que nao da pra fazer isso no arquivo layout que é renderizado no servidor*/}
+        {/* O LayoutWrapper verifica se o pathname é igal a pagina de login ou dashboar para exibir ou nao os componentes header e footer. Ele é necessario ja que nao da pra fazer isso no arquivo layout que é renderizado apenas no servidor*/}
       </body>
     </html>
   );

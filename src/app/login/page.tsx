@@ -16,7 +16,7 @@ export default function Login() {
       const userData = await LoginGoogleHandler(credentialResponse);
       sessionStorage.setItem("userData", JSON.stringify(userData));
       setUser(userData);
-      router.push(`/dashboard`);
+      router.push(`/compras-passos`);
     } catch (error) {
       console.error("Erro no login:", error);
     }
