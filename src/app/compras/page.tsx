@@ -7,8 +7,6 @@ import React from "react";
 import Image from "next/image";
 import planPicture from "../../../public/planPicture.svg";
 
-
-
 export default function Planos() {
   const [plano, setPlano] = React.useState(1);
 
@@ -43,8 +41,8 @@ export default function Planos() {
         <div className="flex-col items-center md:items-start md:flex-row gap-5 lg:mb-10 lg:border-r lg:pr-28">
           <PlanoCard
             className={`${
-              plano === 0 ? "bg-roxo-400 *:text-gray-200" : ""
-            } hover:shadow-[0_0_0_4px_#4351B0] transition-all`}
+              plano === 0 ? "bg-roxo-400 *:text-white" : ""
+            } hover:border-roxo-300 hover:shadow-[0_0_0_4px_#4351B0] transition-all`}
             onClick={() => exibirPlano(0)}
             name={planos[0].name}
             subtitle={planos[0].subtitle}
@@ -52,8 +50,8 @@ export default function Planos() {
           />
           <PlanoCard
             className={`${
-              plano === 1 ? "bg-roxo-400 *:text-gray-200" : ""
-            } hover:shadow-[0_0_0_4px_#4351B0] transition-all`}
+              plano === 1 ? "bg-roxo-400 *:text-white" : ""
+            } hover:border-roxo-300 hover:shadow-[0_0_0_4px_#4351B0] transition-all`}
             onClick={() => exibirPlano(1)}
             name={planos[1].name}
             subtitle={planos[1].subtitle}
@@ -61,8 +59,8 @@ export default function Planos() {
           />
           <PlanoCard
             className={`${
-              plano === 2 ? "bg-roxo-400 *:text-gray-200" : ""
-            } hover:shadow-[0_0_0_4px_#4351B0] transition-all`}
+              plano === 2 ? "bg-roxo-400 *:text-white" : ""
+            } hover:border-roxo-300 hover:shadow-[0_0_0_4px_#4351B0] transition-all`}
             onClick={() => exibirPlano(2)}
             name={planos[2].name}
             subtitle={planos[2].subtitle}
@@ -88,7 +86,11 @@ export default function Planos() {
             description={planos[2].description}
             features={planos[2].features}
           />
-          <Image src={planPicture} alt="picture" className="opacity-50 absolute bottom-0 right-0 min-lg:right-40" />
+          <Image
+            src={planPicture}
+            alt="picture"
+            className="opacity-50 absolute bottom-0 right-0 min-lg:right-40"
+          />
         </div>
       </section>
     </>
