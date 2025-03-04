@@ -2,7 +2,7 @@ type ComprasPlanoItemProps = {
   titulo: string;
   preco: string;
   descricao: string;
-  beneficio1: string;
+  beneficio1: string | React.ReactNode;
   beneficio2: string;
   beneficio3: string;
   beneficio4?: string;

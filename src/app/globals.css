@@ -1,5 +1,4 @@
-@import 'tailwindcss';
-
+@import "tailwindcss";
 @config '../../tailwind.config.ts';
 
 /*
@@ -22,4 +21,17 @@
 .no-scroll {
   overflow: hidden;
   height: 100vh; /* Ajusta a altura do body para evitar espaços em branco */
+}
+/* Animações css */
+.animeLeft {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: animeLeft 0.3s forwards;
+}
+
+@keyframes animeLeft {
+  to {
+    opacity: 1;
+    transform: initial;
+  }
 }

@@ -52,17 +52,17 @@ const Header = () => {
               } items-center z-40 max-lg:fixed max-lg:h-[500px] max-lg:w-full max-lg:inset-0`}
             >
               <div
-                className={`animate-slideIn fixed inset-0 bg-zinc-800 lg:hidden ${
+                className={` fixed inset-0 bg-zinc-800 lg:hidden ${
                   menuMobile ? "block" : "hidden"
                 }`}
               ></div>
 
               <ul
-                className={`lg:flex lg:flex-wrap items-center lg:gap-4 max-lg:z-60 max-lg:absolute max-lg:divide-y-2 max-lg:divide-white/10 max-lg:p-8 max-lg:w-full max-lg:text-2xl ${
+                className={`lg:flex lg:flex-wrap items-center lg:gap-4 max-lg:z-60 max-lg:absolute max-lg:divide-y-2 max-lg:divide-white/10 max-lg:p-8 max-lg:w-full max-lg:text-2xl *:py-4  ${
                   menuMobile ? "block" : "hidden"
                 }`}
               >
-                <li className="max-lg:animate-slideIn max-lg:animate-1">
+                <li className="animeLeft max-lg:animate-slideIn max-lg:animate-1">
                   <Link
                     className={`${
                       pathname === "/sobre" && "lg:bg-white lg:text-black"
@@ -72,7 +72,7 @@ const Header = () => {
                     Sobre
                   </Link>
                 </li>
-                <li className="max-lg:animate-slideIn max-lg:animate-2">
+                <li className="animeLeft max-lg:animate-slideIn max-lg:animate-2">
                   <Link
                     className={`${
                       pathname === "/fale-conosco" &&
@@ -83,7 +83,7 @@ const Header = () => {
                     Contato
                   </Link>
                 </li>
-                <li className="max-lg:animate-slideIn max-lg:animate-3">
+                <li className="animeLeft max-lg:animate-slideIn max-lg:animate-3">
                   <Link
                     className={`${
                       pathname === "/compras" && "lg:bg-white lg:text-black"
@@ -93,7 +93,7 @@ const Header = () => {
                     Compras
                   </Link>
                 </li>
-                <li className="max-lg:animate-slideIn max-lg:animate-4">
+                <li className="animeLeft max-lg:animate-slideIn max-lg:animate-4">
                   <Link
                     className={`text-gray-200 lg:hover:shadow-[0_0_0_4px_#fff] py-2 px-4 lg:rounded-md block transition lg:border max-lg:hover:bg-white/10`}
                     href={"/login"}

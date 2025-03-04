@@ -6,7 +6,6 @@ import PlanoInfo from "./planoInfo";
 import React from "react";
 import Image from "next/image";
 import planPicture from "../../../public/planPicture.svg";
-import { motion } from "framer-motion";
 
 export default function Planos() {
   const [plano, setPlano] = React.useState(1);
@@ -21,12 +20,7 @@ export default function Planos() {
         title="Ideal Health - Compras"
         description="Aproveite nossos serviços e produtos que irão acelerar o seu negócio."
       />
-      <motion.main
-        initial={{ opacity: 0, x: -100 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.3 }}
-        className="container"
-      >
+      <main className="container animeLeft">
         <div>
           <span className="block mt-16 text-gray-500">
             Explore nosso catálogo
@@ -74,19 +68,19 @@ export default function Planos() {
           </div>
           <div className="relative">
             <PlanoInfo
-              className={`${plano === 0 ? "block" : "hidden"}`}
+              className={`${plano === 0 ? "block" : "hidden"} animeLeft`}
               name={planos[0].name}
               description={planos[0].description}
               features={planos[0].features}
             />
             <PlanoInfo
-              className={`${plano === 1 ? "block" : "hidden"}`}
+              className={`${plano === 1 ? "block" : "hidden"} animeLeft`}
               name={planos[1].name}
               description={planos[1].description}
               features={planos[1].features}
             />
             <PlanoInfo
-              className={`${plano === 2 ? "block" : "hidden"}`}
+              className={`${plano === 2 ? "block" : "hidden"} animeLeft`}
               name={planos[2].name}
               description={planos[2].description}
               features={planos[2].features}
@@ -98,7 +92,7 @@ export default function Planos() {
             />
           </div>
         </section>
-      </motion.main>
+      </main>
     </>
   );
 }

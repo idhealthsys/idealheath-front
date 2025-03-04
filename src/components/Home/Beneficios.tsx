@@ -5,7 +5,7 @@ import BeneficioCard from "./BeneficioCard";
 const Beneficios = () => {
   return (
     <section className="bg-[#E4F5FF] py-10">
-      <div className="container grid grid-cols-3 grid-rows-2 gap-10 max-lg:grid-cols-1">
+      <div className="container grid grid-cols-3 grid-rows-2 gap-10 max-lg:grid-cols-1 showAppear">
         <div>
           <Image src={Decoracao} alt="" />
           <h1 className="text-4xl lg:text-5xl mt-8">

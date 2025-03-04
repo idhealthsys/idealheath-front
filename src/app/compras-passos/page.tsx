@@ -45,7 +45,7 @@ export default function ComprasPassos() {
   };
 
   return (
-    <main>
+    <main className="animeLeft">
       <div className="">
         <Stepper
           initialStep={1}
@@ -168,7 +168,11 @@ export default function ComprasPassos() {
                   {cidade} - {estado}
                 </span>
                 <p className="mb-2">{cnpj}</p>
-                <Image className="absolute right-8 top-16 size-34" src={planPicture} alt=""/>
+                <Image
+                  className="absolute right-8 top-16 size-34"
+                  src={planPicture}
+                  alt=""
+                />
               </div>
               <div className="border rounded-md max-lg:w-[340px] w-[400px] h-[200px] flex items-center justify-center">
                 Use o componente da api de chekout aqui!

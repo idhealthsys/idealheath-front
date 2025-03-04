@@ -12,7 +12,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-
 // Definindo a interface para as props do StepIndicator
 interface StepIndicatorProps {
   step: number;
@@ -108,21 +107,20 @@ export default function Stepper({
       updateStep(currentStep - 1);
     }
   };
-  
+
   const handleNext = () => {
     if (!isLastStep) {
       setDirection(1);
       updateStep(currentStep + 1);
     }
   };
-  
-  const router = useRouter()
+
+  const router = useRouter();
   const handleComplete = () => {
     setDirection(1);
     updateStep(totalSteps + 1);
     router.push("/"); // ---------- Redireciona o usuario para o Home ou outra rota ----------
   };
-
 
   return (
     <div
@@ -195,20 +193,22 @@ export default function Stepper({
                   {"Voltar"}
                 </button>
               )}
-              <Link
-                className="duration-350 flex items-center justify-center rounded-full border border-roxo-300 text-roxo-300 py-1.5 px-3.5 font-medium tracking-tight hover:text-white transition hover:bg-roxo-400 active:bg-roxo-400 mr-8"
-                href="/"
-              >
-                Sair
-              </Link>
-              <button
-                onClick={isLastStep ? handleComplete : handleNext}
-                className="duration-350 flex items-center justify-center rounded-full bg-roxo-300 py-1.5 px-3.5 font-medium tracking-tight text-white transition hover:bg-roxo-400 active:bg-roxo-400"
-                {...nextButtonProps}
-              >
-                {isLastStep ? "Finalizar" : "Avançar"}
-                
-              </button>
+
+              <div className="flex">
+                <Link
+                  className="duration-350 flex items-center justify-center rounded-full border border-roxo-300 text-roxo-300 py-1.5 px-3.5 font-medium tracking-tight hover:text-white transition hover:bg-roxo-400 active:bg-roxo-400 mr-8"
+                  href="/"
+                >
+                  Cancelar
+                </Link>
+                <button
+                  onClick={isLastStep ? handleComplete : handleNext}
+                  className="duration-350 flex items-center justify-center rounded-full bg-roxo-300 py-1.5 px-3.5 font-medium tracking-tight text-white transition hover:bg-roxo-400 active:bg-roxo-400"
+                  {...nextButtonProps}
+                >
+                  {isLastStep ? "Finalizar" : "Avançar"}
+                </button>
+              </div>
             </div>
           </div>
         )}

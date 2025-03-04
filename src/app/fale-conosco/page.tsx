@@ -1,11 +1,10 @@
-'use client'
+"use client";
 import Link from "next/link";
 import FAQ from "./faq";
 import CustomInput from "@/components/Shared/FormsComponets/customInput";
 import CustomButton from "@/components/Shared/FormsComponets/customButton";
 import useForm from "@/Hooks/useForm";
 import Head from "@/components/Shared/Head";
-import { motion } from "framer-motion";
 
 export default function Contato() {
   const nome = useForm();
@@ -19,11 +18,7 @@ export default function Contato() {
         title="Ideal Health - Contato"
         description="Tire suas dúvidas ou entre em contato conosco."
       />
-      <motion.main
-        initial={{ opacity: 0, x: -100 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.3 }}
-      >
+      <main className="animeLeft">
         <section className="container mb-28">
           <div>
             <span className="block mt-16 text-gray-500">
@@ -127,7 +122,7 @@ export default function Contato() {
             <FAQ />
           </div>
         </article>
-      </motion.main>
+      </main>
     </>
   );
 }

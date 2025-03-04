@@ -5,11 +5,11 @@ import Solucoes from "@/components/Home/Solucoes";
 
 export default function Home() {
   return (
-    <div>
+    <div className="animeLeft">
       <Introducao />
-      <Solucoes/>
-      <Beneficios/>
-      <Cta/>
+      <Solucoes />
+      <Beneficios />
+      <Cta />
     </div>
   );
 }
